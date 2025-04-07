@@ -265,14 +265,6 @@ def parse_advisory_page_footer(soup, url):
     footer = soup.find('div', class_='l-full__footer')
     if not footer:
         return markup
-    
-    # Extract references
-    # references_section = footer.find('h2', string=re.compile('References', re.I))
-    # if references_section:
-    #     ref_list = references_section.find_next('ul')
-    #     if ref_list:
-    #         for ref in ref_list.find_all('li'):
-    #             markup["references"].append(ref.get_text(strip=True))
 
     sections = footer.find_all(['h2', 'h3'])
 
@@ -289,4 +281,3 @@ def parse_advisory_page_footer(soup, url):
             markup[section_name].append(tag_text)
 
     return markup
-
