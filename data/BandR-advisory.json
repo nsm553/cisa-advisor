@@ -1,0 +1,171 @@
+{
+    "metadata": {
+        "title": "B&R APROL",
+        "date": "April 03, 2025",
+        "advisory_type": "ICS Advisory | ICSA-25-093-04",
+        "affected_products": [
+            "B&R APROL: All versions prior to 4.4-01 (CVE-2024-45483, CVE-2024-10209)",
+            "B&R APROL: All versions 4.4-00P1 and prior (CVE-2024-45482)",
+            "B&R APROL: All versions 4.4-00P5 and prior (CVE-2024-45481, CVE-2024-45480, CVE-2024-8315, CVE-2024-45484, CVE-2024-8313, CVE-2024-8314, CVE-2024-10206, CVE-2024-10207, CVE-2024-10208, CVE-2024-10210)"
+        ],
+        "vendors": [
+            "B&R APROL: All versions prior to 4.4-01 (CVE-2024-45483, CVE-2024-10209)",
+            "B&R APROL: All versions 4.4-00P1 and prior (CVE-2024-45482)",
+            "B&R APROL: All versions 4.4-00P5 and prior (CVE-2024-45481, CVE-2024-45480, CVE-2024-8315, CVE-2024-45484, CVE-2024-8313, CVE-2024-8314, CVE-2024-10206, CVE-2024-10207, CVE-2024-10208, CVE-2024-10210)"
+        ],
+        "related_topics": [
+            "[Industrial Control System Vulnerabilities](/topics/industrial-control-systems/industrial-control-system-vulnerabilities)",
+            "[Industrial Control Systems](/topics/industrial-control-systems)"
+        ],
+        "summary": "Successful exploitation of these vulnerabilities could allow an attacker to execute commands, elevate privileges, gather sensitive information, or alter the product."
+    },
+    "content": {
+        "1. EXECUTIVE SUMMARY": [
+            "CVSS v4 9.2",
+            "ATTENTION : Exploitable remotely/low attack complexity",
+            "Vendor : B&R",
+            "Equipment : APROL",
+            "Vulnerabilities : Inclusion of Functionality from Untrusted Control Sphere, Incomplete Filtering of Special Elements, Improper Control of Generation of Code ('Code Injection'), Improper Handling of Insufficient Permissions or Privileges , Allocation of Resources Without Limits or Throttling, Missing Authentication for Critical Function, Exposure of Sensitive System Information to an Unauthorized Control Sphere, Exposure of Data Element to Wrong Session, Server-Side Request Forgery (SSRF), Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting'), External Control of File Name or Path, Incorrect Permission Assignment for Critical Resource"
+        ],
+        "2. RISK EVALUATION": [
+            "Successful exploitation of these vulnerabilities could allow an attacker to execute commands, elevate privileges, gather sensitive information, or alter the product."
+        ],
+        "3. TECHNICAL DETAILS": [],
+        "3.1 AFFECTED PRODUCTS": [
+            "B&R reports that the following products are affected:",
+            "B&R APROL: All versions prior to 4.4-01 (CVE-2024-45483, CVE-2024-10209)",
+            "B&R APROL: All versions 4.4-00P1 and prior (CVE-2024-45482)",
+            "B&R APROL: All versions 4.4-00P5 and prior (CVE-2024-45481, CVE-2024-45480, CVE-2024-8315, CVE-2024-45484, CVE-2024-8313, CVE-2024-8314, CVE-2024-10206, CVE-2024-10207, CVE-2024-10208, CVE-2024-10210)"
+        ],
+        "3.2 VULNERABILITY OVERVIEW": [],
+        "3.2.1INCLUSION OF FUNCTIONALITY FROM UNTRUSTED CONTROL SPHERE CWE-829": [
+            "An Inclusion of Functionality from Untrusted Control Sphere vulnerability in the SSH server on B&R APROL <4.4-00P1 may allow an authenticated local attacker from a trusted remote server to execute malicious commands.",
+            "[CVE-2024-45482](https://www.cve.org/CVERecord?id=CVE-2024-45482) has been assigned to this vulnerability. A CVSS v3 base score of 7.8 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-45482](https://www.cve.org/CVERecord?id=CVE-2024-45482) . A base score of 8.5 has been calculated; the CVSS vector string is ( [AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N) )."
+        ],
+        "3.2.2INCOMPLETE FILTERING OF SPECIAL ELEMENTS CWE-791": [
+            "An Incomplete Filtering of Special Elements vulnerability in scripts using the SSH server on B&R APROL <4.4-00P5 may allow an authenticated local attacker to authenticate as another legitimate user.",
+            "[CVE-2024-45481](https://www.cve.org/CVERecord?id=CVE-2024-45481) has been assigned to this vulnerability. A CVSS v3 base score of 7.8 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-45481](https://www.cve.org/CVERecord?id=CVE-2024-45481) . A base score of 8.5 has been calculated; the CVSS vector string is ( [AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N) )."
+        ],
+        "3.2.3IMPROPER CONTROL OF GENERATION OF CODE ('CODE INJECTION') CWE-94": [
+            "An improper control of generation of code ('Code Injection') vulnerability in the AprolCreateReport component of B&R APROL <4.4-00P5 may allow an unauthenticated network-based attacker to read files from the local system.",
+            "[CVE-2024-45480](https://www.cve.org/CVERecord?id=CVE-2024-45480) has been assigned to this vulnerability. A CVSS v3 base score of 8.6 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-45480](https://www.cve.org/CVERecord?id=CVE-2024-45480) . A base score of 9.2 has been calculated; the CVSS vector string is ( [AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:H/SI:N/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:H/SI:N/SA:N) )."
+        ],
+        "3.2.4IMPROPER HANDLING OF INSUFFICIENT PERMISSIONS OR PRIVILEGES CWE-280": [
+            "An Improper Handling of Insufficient Permissions or Privileges vulnerability in scripts used in B&R APROL <4.4-00P5 may allow an authenticated local attacker to read credential information.",
+            "[CVE-2024-8315](https://www.cve.org/CVERecord?id=CVE-2024-8315) has been assigned to this vulnerability. A CVSS v3 base score of 5.5 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-8315](https://www.cve.org/CVERecord?id=CVE-2024-8315) . A base score of 6.8 has been calculated; the CVSS vector string is ( [AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N) )."
+        ],
+        "3.2.5ALLOCATION OF RESOURCES WITHOUT LIMITS OR THROTTLING CWE-770": [
+            "An Allocation of Resources Without Limits or Throttling vulnerability in the operating system network configuration used in B&R APROL <4.4-00P5 may allow an unauthenticated adjacent attacker to perform Denial-of-Service (DoS) attacks against the product.",
+            "[CVE-2024-45484](https://www.cve.org/CVERecord?id=CVE-2024-45484) has been assigned to this vulnerability. A CVSS v3 base score of 7.6 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-45484](https://www.cve.org/CVERecord?id=CVE-2024-45484) . A base score of 7.2 has been calculated; the CVSS vector string is ( [AV:A/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:H/SC:N/SI:N/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:A/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:H/SC:N/SI:N/SA:N) )."
+        ],
+        "3.2.6MISSING AUTHENTICATION FOR CRITICAL FUNCTION CWE-306": [
+            "A Missing Authentication for Critical Function vulnerability in the GRUB configuration used in B&R APROL <4.4-01 may allow an unauthenticated physical attacker to alter the boot configuration of the operating system.",
+            "[CVE-2024-45483](https://www.cve.org/CVERecord?id=CVE-2024-45483) has been assigned to this vulnerability. A CVSS v3 base score of 6.8 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-45483](https://www.cve.org/CVERecord?id=CVE-2024-45483) . A base score of 7.0 has been calculated; the CVSS vector string is ( [AV:P/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:P/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N) )."
+        ],
+        "3.2.7EXPOSURE OF SENSITIVE SYSTEM INFORMATION TO AN UNAUTHORIZED CONTROL SPHERE CWE-497": [
+            "An Exposure of Sensitive System Information to an Unauthorized Control Sphere and Initialization of a Resource with an Insecure Default vulnerability in the SNMP component of B&R APROL <4.4-00P5 may allow an unauthenticated adjacent-based attacker to read and alter configuration using SNMP.",
+            "[CVE-2024-8313](https://www.cve.org/CVERecord?id=CVE-2024-8313) has been assigned to this vulnerability. A CVSS v3 base score of 8.8 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-8313](https://www.cve.org/CVERecord?id=CVE-2024-8313) . A base score of 8.7 has been calculated; the CVSS vector string is ( [AV:A/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:A/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N) )."
+        ],
+        "3.2.8EXPOSURE OF DATA ELEMENT TO WRONG SESSION CWE-488": [
+            "An Incorrect Implementation of Authentication Algorithm and Exposure of Data Element to Wrong Session vulnerability in the session handling used in B&R APROL <4.4-00P5 may allow an authenticated network attacker to take over a currently active user session without login credentials.",
+            "[CVE-2024-8314](https://www.cve.org/CVERecord?id=CVE-2024-8314) has been assigned to this vulnerability. A CVSS v3 base score of 8.0 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:H/I:H/A:H](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:H/I:H/A:H) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-8314](https://www.cve.org/CVERecord?id=CVE-2024-8314) . A base score of 5.5 has been calculated; the CVSS vector string is ( [AV:N/AC:L/AT:P/PR:L/UI:P/VC:N/VI:N/VA:N/SC:H/SI:H/SA:H](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:P/VC:N/VI:N/VA:N/SC:H/SI:H/SA:H) )."
+        ],
+        "3.2.9SERVER-SIDE REQUEST FORGERY (SSRF) CWE-918": [
+            "A Server-Side Request Forgery vulnerability in the APROL Web Portal used in B&R APROL <4.4-00P5 may allow an unauthenticated network-based attacker to force the web server to request arbitrary URLs.",
+            "[CVE-2024-10206](https://www.cve.org/CVERecord?id=CVE-2024-10206) has been assigned to this vulnerability. A CVSS v3 base score of 5.3 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-10206](https://www.cve.org/CVERecord?id=CVE-2024-10206) . A base score of 6.9 has been calculated; the CVSS vector string is ( [AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:N/SC:L/SI:N/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:N/SC:L/SI:N/SA:N) )."
+        ],
+        "3.2.10SERVER-SIDE REQUEST FORGERY (SSRF) CWE-918": [
+            "A Server-Side Request Forgery vulnerability in the APROL Web Portal used in B&R APROL <4.4-00P5 may allow an authenticated network-based attacker to force the web server to request arbitrary URLs",
+            "[CVE-2024-10207](https://www.cve.org/CVERecord?id=CVE-2024-10207) has been assigned to this vulnerability. A CVSS v3 base score of 4.3 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-10207](https://www.cve.org/CVERecord?id=CVE-2024-10207) . A base score of 5.3 has been calculated; the CVSS vector string is ( [AV:N/AC:L/AT:N/PR:L/UI:N/VC:N/VI:N/VA:N/SC:L/SI:N/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:N/VI:N/VA:N/SC:L/SI:N/SA:N) )."
+        ],
+        "3.2.11IMPROPER NEUTRALIZATION OF INPUT DURING WEB PAGE GENERATION ('CROSS-SITE SCRIPTING') CWE-79": [
+            "An Improper Neutralization of Input During Web Page Generation vulnerability in the APROL Web Portal used in B&R APROL <4.4-00P5 may allow an authenticated network-based attacker to insert malicious code which is then executed in the context of the user's browser session.",
+            "[CVE-2024-10208](https://www.cve.org/CVERecord?id=CVE-2024-10208) has been assigned to this vulnerability. A CVSS v3 base score of 6.1 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-10208](https://www.cve.org/CVERecord?id=CVE-2024-10208) . A base score of 5.1 has been calculated; the CVSS vector string is ( [AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N) )."
+        ],
+        "3.2.12EXTERNAL CONTROL OF FILE NAME OR PATH CWE-73": [
+            "An External Control of File Name or Path vulnerability in the APROL Web Portal used in B&R APROL <4.4-005P may allow an authenticated network-based attacker to access data from the file system.",
+            "[CVE-2024-10210](https://www.cve.org/CVERecord?id=CVE-2024-10210) has been assigned to this vulnerability. A CVSS v3 base score of 8.5 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-10210](https://www.cve.org/CVERecord?id=CVE-2024-10210) . A base score of 8.4 has been calculated; the CVSS vector string is ( [AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:L/VA:N/SC:H/SI:L/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:L/VA:N/SC:H/SI:L/SA:N) )."
+        ],
+        "3.2.13INCORRECT PERMISSION ASSIGNMENT FOR CRITICAL RESOURCE CWE-732": [
+            "An Incorrect Permission Assignment for Critical Resource vulnerability in the file system used in B&R APROL <4.4-01 may allow an authenticated local attacker to read and alter the configuration of another engineering or runtime user.",
+            "[CVE-2024-10209](https://www.cve.org/CVERecord?id=CVE-2024-10209) has been assigned to this vulnerability. A CVSS v3 base score of 7.8 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2024-10209](https://www.cve.org/CVERecord?id=CVE-2024-10209) . A base score of 8.5 has been calculated; the CVSS vector string is ( [AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N) )."
+        ],
+        "3.3 BACKGROUND": [
+            "CRITICAL INFRASTRUCTURE SECTORS: Critical Manufacturing",
+            "COUNTRIES/AREAS DEPLOYED: Worldwide",
+            "COMPANY HEADQUARTERS LOCATION: Austria"
+        ],
+        "3.4 RESEARCHER": [
+            "ABB PSIRT reported these vulnerabilities to CISA."
+        ],
+        "4. MITIGATIONS": [
+            "B&R has identified the following specific workarounds and mitigations users can apply to reduce risk:",
+            "B&R APROL 4.4-01: B&R recommends that users apply the patch or upgrade to a non-vulnerable version at their earliest convenience. The process to install updates is described in the user manual. The step to identify the installed product version is described in the user manual. As some of the vulnerabilities affect the confidentiality of credentials, it is recommended to change all secrets/passwords after applying the update. (CVE-2024-45483, CVE-2024-10209)",
+            "B&R APROL 4.4-00P1: B&R recommends that users apply the patch or upgrade to a non-vulnerable version at their earliest convenience. The process to install updates is described in the user manual. The step to identify the installed product version is described in the user manual. As some of the vulnerabilities affect the confidentiality of credentials, it is recommended to change all secrets/passwords after applying the update. (CVE-2024-45482)",
+            "B&R APROL 4.4-00P5: B&R recommends that users apply the patch or upgrade to a non-vulnerable version at their earliest convenience. The process to install updates is described in the user manual. The step to identify the installed product version is described in the user manual. As some of the vulnerabilities affect the confidentiality of credentials, it is recommended to change all secrets/passwords after applying the update. (CVE-2024-45481, CVE-2024-45480, CVE-2024-8315, CVE-2024-45484, CVE-2024-8313, CVE-2024-8314, CVE-2024-10206, CVE-2024-10207, CVE-2024-10208, CVE-2024-10210)",
+            "The following product versions have been fixed:",
+            "B&R APROL 4.4-01: APROL version 4.4-01 is a fixed version for CVE-2024-45483 and CVE-2024-10209",
+            "B&R APROL 4.4-00P1: APROL versions 4.4-00P1 and later are fixed versions for CVE-2024-45482",
+            "B&R APROL 4.4-00P5: APROL versions 4.4-00P5 and later are fixed versions for CVE-2024-45481, CVE-2024-45480, CVE-2024-8315, CVE-2024-45484, CVE-2024-8313, CVE-2024-8314, CVE-2024-10206, CVE-2024-10207, CVE-2024-10208, and CVE-2024-10210",
+            "For more information, see B&R's [security advisory](https://www.br-automation.com/fileadmin/SA24P015-77573c08.pdf) .",
+            "CISA recommends users take defensive measures to minimize the risk of exploitation of these vulnerabilities, such as:",
+            "Minimize network exposure for all control system devices and/or systems, ensuring they are [not accessible from the internet](https://www.cisa.gov/uscert/ics/alerts/ICS-ALERT-10-301-01) .",
+            "Locate control system networks and remote devices behind firewalls and isolating them from business networks.",
+            "When remote access is required, use more secure methods, such as Virtual Private Networks (VPNs). Recognize VPNs may have vulnerabilities, should be updated to the most recent version available, and are only as secure as the connected devices.",
+            "CISA reminds organizations to perform proper impact analysis and risk assessment prior to deploying defensive measures.",
+            "CISA also provides a section for [control systems security recommended practices](https://www.cisa.gov/resources-tools/resources/ics-recommended-practices) on the ICS webpage on [cisa.gov](https://www.cisa.gov/topics/industrial-control-systems) . Several CISA products detailing cyber defense best practices are available for reading and download, including [Improving Industrial Control Systems Cybersecurity with Defense-in-Depth Strategies](https://us-cert.cisa.gov/sites/default/files/recommended_practices/NCCIC_ICS-CERT_Defense_in_Depth_2016_S508C.pdf) .",
+            "CISA encourages organizations to implement recommended cybersecurity strategies for [proactive defense of ICS assets](https://www.cisa.gov/sites/default/files/publications/Cybersecurity_Best_Practices_for_Industrial_Control_Systems.pdf) .",
+            "Additional mitigation guidance and recommended practices are publicly available on the ICS webpage at [cisa.gov](https://www.cisa.gov/topics/industrial-control-systems) in the technical information paper, [ICS-TIP-12-146-01B--Targeted Cyber Intrusion Detection and Mitigation Strategies](https://www.cisa.gov/uscert/ics/tips/ICS-TIP-12-146-01B) .",
+            "Organizations observing suspected malicious activity should follow established internal procedures and report findings to CISA for tracking and correlation against other incidents.",
+            "CISA also recommends users take the following measures to protect themselves from social engineering attacks:",
+            "Do not click web links or open attachments in unsolicited email messages.",
+            "Refer to [Recognizing and Avoiding Email Scams](https://www.cisa.gov/uscert/sites/default/files/publications/emailscams0905.pdf) for more information on avoiding email scams.",
+            "Refer to [Avoiding Social Engineering and Phishing Attacks](https://www.cisa.gov/uscert/ncas/tips/ST04-014) for more information on social engineering attacks.",
+            "No known public exploitation specifically targeting these vulnerabilities has been reported to CISA at this time."
+        ],
+        "5. UPDATE HISTORY": [
+            "April 3, 2025: Initial publication of B&R SA24P015",
+            "This product is provided subject to this [Notification](/notification) and this [Privacy & Use](/privacy-policy) policy."
+        ],
+        "Vendor": [
+            "B&R"
+        ]
+    },
+    "references": [],
+    "recommendations": [],
+    "vulnerabilities": [],
+    "llm_summary": {
+        "title": "B&R APROL",
+        "advisory_id": "",
+        "date": "April 03, 2025",
+        "advisory_type": "ICS Advisory | ICSA-25-093-04",
+        "cvss_score": "",
+        "affected_products": [
+            "B&R APROL: All versions prior to 4.4-01 (CVE-2024-45483, CVE-2024-10209)",
+            "B&R APROL: All versions 4.4-00P1 and prior (CVE-2024-45482)",
+            "B&R APROL: All versions 4.4-00P5 and prior (CVE-2024-45481, CVE-2024-45480, CVE-2024-8315, CVE-2024-45484, CVE-2024-8313, CVE-2024-8314, CVE-2024-10206, CVE-2024-10207, CVE-2024-10208, CVE-2024-10210)"
+        ],
+        "vendors": [
+            "B&R APROL: All versions prior to 4.4-01 (CVE-2024-45483, CVE-2024-10209)",
+            "B&R APROL: All versions 4.4-00P1 and prior (CVE-2024-45482)",
+            "B&R APROL: All versions 4.4-00P5 and prior (CVE-2024-45481, CVE-2024-45480, CVE-2024-8315, CVE-2024-45484, CVE-2024-8313, CVE-2024-8314, CVE-2024-10206, CVE-2024-10207, CVE-2024-10208, CVE-2024-10210)"
+        ],
+        "summary": "Successful exploitation of these vulnerabilities could allow an attacker to execute commands, elevate privileges, gather sensitive information, or alter the product.",
+        "key_points": [],
+        "impact": [],
+        "mitigation": []
+    }
+}

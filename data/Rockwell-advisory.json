@@ -1,0 +1,104 @@
+{
+    "metadata": {
+        "title": "Rockwell Automation Lifecycle Services with Veeam Backup and Replication",
+        "date": "April 01, 2025",
+        "advisory_type": "ICS Advisory | ICSA-25-093-05",
+        "affected_products": [
+            "Industrial Data Center (IDC) with Veeam: Generations 1 \u2013 5",
+            "VersaVirtual Appliance (VVA) with Veeam: Series A - C"
+        ],
+        "vendors": [
+            "Industrial Data Center (IDC) with Veeam: Generations 1 \u2013 5",
+            "VersaVirtual Appliance (VVA) with Veeam: Series A - C"
+        ],
+        "related_topics": [
+            "[Industrial Control System Vulnerabilities](/topics/industrial-control-systems/industrial-control-system-vulnerabilities)",
+            "[Industrial Control Systems](/topics/industrial-control-systems)"
+        ],
+        "summary": "Successful exploitation of this vulnerability could allow an attacker with administrative privileges to execute code on the target system."
+    },
+    "content": {
+        "1. EXECUTIVE SUMMARY": [
+            "CVSS v4 9.4",
+            "ATTENTION : Exploitable remotely/low attack complexity",
+            "Vendor : Rockwell Automation",
+            "Equipment : Lifecycle Services with Veeam Backup and Replication",
+            "Vulnerability : Deserialization of Untrusted Data"
+        ],
+        "2. RISK EVALUATION": [
+            "Successful exploitation of this vulnerability could allow an attacker with administrative privileges to execute code on the target system."
+        ],
+        "3. TECHNICAL DETAILS": [],
+        "3.1 AFFECTED PRODUCTS": [
+            "Rockwell Automation reports the following Lifecycle Services with Veeam Backup and Replication are affected:",
+            "Industrial Data Center (IDC) with Veeam: Generations 1 \u2013 5",
+            "VersaVirtual Appliance (VVA) with Veeam: Series A - C"
+        ],
+        "3.2 VULNERABILITY OVERVIEW": [],
+        "3.2.1DESERIALIZATION OF UNTRUSTED DATA CWE-502": [
+            "A remote code execution vulnerability exists in Veeam Backup and Replication, which the affected products use. Exploitation of the vulnerability can allow a threat actor to execute code on the target system.",
+            "[CVE-2025-23120](https://www.cve.org/CVERecord?id=CVE-2025-23120) has been assigned to this vulnerability. A CVSS v3.1 base score of 9.9 has been calculated; the CVSS vector string is ( [CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H) ).",
+            "A CVSS v4 score has also been calculated for [CVE-2025-23120](https://www.cve.org/CVERecord?id=CVE-2025-23120) . A base score of 9.4 has been calculated; the CVSS vector string is ( [CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H](https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H) )."
+        ],
+        "3.3 BACKGROUND": [
+            "CRITICAL INFRASTRUCTURE SECTORS: Critical Manufacturing",
+            "COUNTRIES/AREAS DEPLOYED: Worldwide",
+            "COMPANY HEADQUARTERS LOCATION: United States"
+        ],
+        "3.4 RESEARCHER": [
+            "Rockwell Automation reported this vulnerability to CISA."
+        ],
+        "4. MITIGATIONS": [
+            "Users with an active Rockwell Automation Infrastructure Managed Service contract:",
+            "Rockwell Automation will contact impacted users to discuss actions needed for remediation efforts.",
+            "Users without Rockwell Automation managed services contract, refer to Veeam's advisories below:",
+            "[Support Content Notification - Support Portal \u2013 Veeam support portal](https://www.veeam.com/knowledge-base.html)",
+            "[Veeam Backup & Replication CVE-2025-23120](https://www.veeam.com/kb4724)",
+            "Additionally, users of the affected software who are not able to upgrade to one of the corrected versions are encouraged to apply [security best practices](https://rockwellautomation.custhelp.com/app/answers/answer_view/a_id/1085012/loc/en_US#__highlight) where possible.",
+            "For more information refer to [Rockwell Automation's security advisory.](https://www.rockwellautomation.com/en-us/trust-center/security-advisories/advisory.SD1724.html)",
+            "CISA recommends users take defensive measures to minimize the risk of exploitation of this vulnerability, such as:",
+            "Minimize network exposure for all control system devices and/or systems, ensuring they are [not accessible from the Internet](https://www.cisa.gov/uscert/ics/alerts/ICS-ALERT-10-301-01) .",
+            "Locate control system networks and remote devices behind firewalls and isolating them from business networks.",
+            "When remote access is required, use more secure methods, such as virtual private networks (VPNs), recognizing VPNs may have vulnerabilities and should be updated to the most current version available. Also recognize VPN is only as secure as the connected devices.",
+            "CISA reminds organizations to perform proper impact analysis and risk assessment prior to deploying defensive measures.",
+            "CISA also provides a section for [control systems security recommended practices](https://www.cisa.gov/resources-tools/resources/ics-recommended-practices) on the ICS webpage on [cisa.gov/ics](https://www.cisa.gov/topics/industrial-control-systems) . Several CISA products detailing cyber defense best practices are available for reading and download, including [Improving Industrial Control Systems Cybersecurity with Defense-in-Depth Strategies](https://us-cert.cisa.gov/sites/default/files/recommended_practices/NCCIC_ICS-CERT_Defense_in_Depth_2016_S508C.pdf) .",
+            "CISA encourages organizations to implement recommended cybersecurity strategies for [proactive defense of ICS assets](https://www.cisa.gov/sites/default/files/publications/Cybersecurity_Best_Practices_for_Industrial_Control_Systems.pdf) .",
+            "Additional mitigation guidance and recommended practices are publicly available on the ICS webpage at [cisa.gov/ics](https://www.cisa.gov/topics/industrial-control-systems) in the technical information paper, [ICS-TIP-12-146-01B--Targeted Cyber Intrusion Detection and Mitigation Strategies](https://www.cisa.gov/uscert/ics/tips/ICS-TIP-12-146-01B) .",
+            "Organizations observing suspected malicious activity should follow established internal procedures and report findings to CISA for tracking and correlation against other incidents.",
+            "CISA also recommends users take the following measures to protect themselves from social engineering attacks:",
+            "Do not click web links or open attachments in unsolicited email messages.",
+            "Refer to [Recognizing and Avoiding Email Scams](https://www.cisa.gov/uscert/sites/default/files/publications/emailscams0905.pdf) for more information on avoiding email scams.",
+            "Refer to [Avoiding Social Engineering and Phishing Attacks](https://www.cisa.gov/uscert/ncas/tips/ST04-014) for more information on social engineering attacks.",
+            "No known public exploitation specifically targeting this vulnerability has been reported to CISA at this time."
+        ],
+        "5. UPDATE HISTORY": [
+            "April 1, 2025: Initial Republication of Rockwell Automation SD1724",
+            "This product is provided subject to this [Notification](/notification) and this [Privacy & Use](/privacy-policy) policy."
+        ],
+        "Vendor": [
+            "Rockwell Automation"
+        ]
+    },
+    "references": [],
+    "recommendations": [],
+    "vulnerabilities": [],
+    "llm_summary": {
+        "title": "Rockwell Automation Lifecycle Services with Veeam Backup and Replication",
+        "advisory_id": "",
+        "date": "April 01, 2025",
+        "advisory_type": "ICS Advisory | ICSA-25-093-05",
+        "cvss_score": "",
+        "affected_products": [
+            "Industrial Data Center (IDC) with Veeam: Generations 1 \u2013 5",
+            "VersaVirtual Appliance (VVA) with Veeam: Series A - C"
+        ],
+        "vendors": [
+            "Industrial Data Center (IDC) with Veeam: Generations 1 \u2013 5",
+            "VersaVirtual Appliance (VVA) with Veeam: Series A - C"
+        ],
+        "summary": "Successful exploitation of this vulnerability could allow an attacker with administrative privileges to execute code on the target system.",
+        "key_points": [],
+        "impact": [],
+        "mitigation": []
+    }
+}
