@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Advisories AI Agent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 100vh;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .output-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+
+        .input-section {
+            position: sticky;
+            bottom: 0;
+            background-color: white;
+            padding: 20px;
+            border-top: 1px solid #eee;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        textarea {
+            flex: 1;
+            height: 60px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            height: 60px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        .user-message {
+            background-color: #f8f9fa;
+            margin-left: 20%;
+        }
+
+        .assistant-message {
+            background-color: #e3f2fd;
+            margin-right: 20%;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 10px;
+            font-style: italic;
+            color: #666;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+
+        .data-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .data-table tbody tr:hover {
+            background-color: #f0f7ff;
+        }
+
+        .no-data {
+            padding: 15px;
+            text-align: center;
+            color: #666;
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="main-container">
+        <div class="chat-container">
+            <div id="outputArea" class="output-area">
+                <!-- Messages will be inserted here -->
+            </div>
+            <div id="loading" class="loading">
+                Processing your request...
+            </div>
+            <div class="input-section">
+                <div class="input-area">
+                    <textarea id="userInput" placeholder="Enter your text/prompt to search for Cybersecurity advisories..."></textarea>
+                    <button id="askButton">Ask</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let conversationHistory = [];
+
+        function scrollToBottom() {
+            const outputArea = document.getElementById('outputArea');
+            outputArea.scrollTop = outputArea.scrollHeight;
+        }
+
+        function createTableFromJson(jsonData) {
+          // Handle empty or invalid data
+          if (!jsonData || !Array.isArray(jsonData) || jsonData.length === 0) {
+              return '<div class="no-data">No data available</div>';
+          }
+
+          // Get headers from the first object
+          const headers = Object.keys(jsonData[0]);
+
+          // Start building table
+          let tableHTML = '<table class="data-table">';
+
+          // Create header row
+          tableHTML += '<thead><tr>';
+          headers.forEach(header => {
+              tableHTML += `<th>${formatHeader(header)}</th>`;
+          });
+          tableHTML += '</tr></thead>';
+
+          // Create table body
+          tableHTML += '<tbody>';
+          jsonData.forEach(row => {
+              tableHTML += '<tr>';
+              headers.forEach(header => {
+                  tableHTML += `<td>${formatCell(row[header])}</td>`;
+              });
+              tableHTML += '</tr>';
+          });
+          tableHTML += '</tbody>';
+
+          tableHTML += '</table>';
+          return tableHTML;
+        }
+
+        // Helper function to format header text
+        function formatHeader(header) {
+            return header
+                .replace(/_/g, ' ')
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+        }
+
+        // Helper function to format cell content
+        function formatCell(content) {
+            if (content === null || content === undefined) {
+                return '-';
+            }
+
+            // Handle objects and arrays
+            if (typeof content === 'object') {
+                if (Array.isArray(content)) {
+                    return content.map(item => 
+                        typeof item === 'object' ? JSON.stringify(item, null, 2) : item
+                    ).join(', ');
+                }
+                // Format JSON with indentation for better readability
+                return `<pre>${JSON.stringify(content, null, 2)}</pre>`;
+            }
+
+            // Handle boolean values
+            if (typeof content === 'boolean') {
+                return content ? 'Yes' : 'No';
+            }
+
+            // Handle URLs
+            if (typeof content === 'string') {
+                if (content.match(/^https?:\/\//)) {
+                    return `<a href="${content}" target="_blank" rel="noopener noreferrer">Link</a>`;
+                }
+                // Handle long text
+                if (content.length > 100) {
+                    return `<div style="max-height: 150px; overflow-y: auto;">${content}</div>`;
+                }
+            }
+
+            return content.toString();
+        }
+
+        // function createTableFromJson(jsonData) {
+        //   if (!jsonData || jsonData.length === 0) {
+        //     return '<p>No data to display.</p>';
+        //   }
+
+        //   let tableHTML = '<table margin="1"><thead><tr><th>';
+        //   for (const key in jsonData[0])
+        //     tableHTML += `<td>${key}</td>`;
+
+        //   tableHTML += "</th></tr><tbody>"
+        //   // Create table headers from the first object's keys
+        //   for (const indx in jsonData) {
+        //     tableHTML += `<tr>`;
+        //     for (const key of Object.keys(jsonData[indx]))  {
+        //       tableHTML += `<td>${key}</td>`;
+        //       tableHTML += `<td>${jsonData[indx][key]}</td>`;
+        //       // console.log('${key}-${jsonData[indx][key]}');
+        //     }
+        //     tableHTML += `</tr>`;
+        //   }
+        //   tableHTML += '</tbody></thead></table>';
+        //   return tableHTML;
+        // }
+
+        document.getElementById('askButton').addEventListener('click', async () => {
+            const userInput = document.getElementById('userInput');
+            const outputArea = document.getElementById('outputArea');
+            const loadingDiv = document.getElementById('loading');
+            const userMessage = userInput.value.trim();
+
+            if (!userMessage) return;
+
+            // Add user message to the conversation
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.className = 'message user-message';
+            userMessageDiv.textContent = userMessage;
+            outputArea.appendChild(userMessageDiv);
+            scrollToBottom();
+
+            // Show loading indicator
+            loadingDiv.style.display = 'block';
+            userInput.value = '';
+
+            try {
+                const response = await fetch('/advisories', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: userMessage,
+                        history: conversationHistory
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                console.log("data: " + data);
+                // Add assistant's response to the conversation
+                const assistantMessageDiv = document.createElement('div');
+                assistantMessageDiv.className = 'message assistant-message';
+                // assistantMessageDiv.textContent = createTableFromJson(data);
+                assistantMessageDiv.innerHTML = createTableFromJson(data);
+                outputArea.appendChild(assistantMessageDiv);
+
+                // Update conversation history
+                conversationHistory.push({
+                    role: 'user',
+                    content: userMessage
+                });
+                conversationHistory.push({
+                    role: 'assistant',
+                    content: data.response
+                });
+
+                // Scroll to bottom
+                scrollToBottom();
+            } catch (error) {
+                console.error('Error:', error);
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'message assistant-message';
+                errorDiv.textContent = 'Sorry, there was an error processing your request.';
+                outputArea.appendChild(errorDiv);
+                scrollToBottom();
+            } finally {
+                loadingDiv.style.display = 'none';
+            }
+        });
+
+        // Allow sending message with Enter key (Shift+Enter for new line)
+        document.getElementById('userInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                document.getElementById('askButton').click();
+            }
+        });
+
+        // Initial scroll to bottom
+        scrollToBottom();
+    </script>
+</body>
+</html>

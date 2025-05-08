@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from utils import get_page_content, get_anchors, get_element_text_with_links
+from .utils import get_page_content, get_anchors, get_element_text_with_links
 import json
 import re
 

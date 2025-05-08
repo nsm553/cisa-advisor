@@ -1,8 +1,8 @@
 from unicodedata import name
 from bs4 import BeautifulSoup
 import os
-from utils import create_output_directory, get_page_content
-from cisa_parser import parse_advisory_page
+from .utils import create_output_directory, get_page_content
+from .cisa_parser import parse_advisory_page
 from datetime import datetime
 import argparse
 import json

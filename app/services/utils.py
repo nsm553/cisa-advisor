@@ -47,3 +47,9 @@ def get_element_text_with_links(element):
             text_parts.append(content.get_text(strip=True))
     
     return ' '.join(text_parts)
+
+def toInt(value) -> int:
+    try:
+        return int(value)
+    except ValueError:
+        return 1
