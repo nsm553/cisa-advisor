@@ -1,10 +1,9 @@
 # Install with pip install firecrawl-py
 import os
-from requests import Response
 from dotenv import load_dotenv
 from firecrawl import FirecrawlApp, ScrapeOptions
 from datetime import datetime
-from flask import jsonify, request, Blueprint
+from flask import jsonify, request, Blueprint, Response
 from .utils import toInt
 from app.models import cisa_model
 
@@ -64,18 +63,19 @@ def advisories():
 
         res_json_schema = result.model_json_schema()
         res_json = result.model_dump_json()
-        
+        print(f"status: {result.status}")
+
         for d in result.data:
             print(f"data: {d.markdown}") 
-            data.append(d.markdown)          # print(f"data markdown: {d.markdown['data']['markdown']['markdown']['markdown']['markdown']}")      
-        return Response(data, mimetype='text/html'), 200
+            data.append(d.markdown)          # print(f"data markdown: {d.markdown['data']['markdown']['markdown']['markdown']['markdown']}")          
+        return Response(data, mimetype='text/plain', status=200)
 
     except Exception as e:
         return jsonify(error=str(e)), 500
 
 
 @adv.route("/search", methods=["GET"])
-def scrape_advisories(search_term):
+def scrape_advisories():
     """
     Search for cyber security advisories
     [GET] /search
@@ -93,6 +93,7 @@ def scrape_advisories(search_term):
     }
     """
 
+    search_term = request.args.get('search_term')
     if not search_term:
         return jsonify(error="Required argument: search_term is not available"), 400
     limit = request.args.get('limit')
@@ -137,10 +138,11 @@ def scrape_advisories(search_term):
         for d in result.data:
             print(f"data: {d.markdown}") 
             data.append(d.markdown)          # print(f"data markdown: {d.markdown['data']['markdown']['markdown']['markdown']['markdown']}")      
-        return Response(data, mimetype='text/html'), 200
+        return Response(result.markdown, mimetype='text/plain', status=200)
 
     except Exception as e:
         return jsonify(error=str(e)), 500
+
 
 if __name__ == "__main__":
     advisories()

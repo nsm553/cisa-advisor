@@ -1,0 +1,199 @@
+[Skip to main content](https://www.cisa.gov/news-events/cybersecurity-advisories/aa18-337a#main)
+
+![U.S. flag](https://www.cisa.gov/profiles/cisad8_gov/themes/custom/gesso/dist/images/us_flag_small.png)
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+[Free Cyber Services](https://www.cisa.gov/resources-tools/resources/free-cybersecurity-services-and-tools "Free Cyber Services") [Secure by design](https://www.cisa.gov/securebydesign) [Secure Our World](https://www.cisa.gov/node/18883) [Shields Up](https://www.cisa.gov/node/8056) [Report A Cyber Issue](https://www.cisa.gov/report)
+
+[![Cybersecurity & Infrastructure Security Agency logo America’s Cyber Security Defense Agency National Coordinator For Critical Infrastructure Security and Resilience](https://www.cisa.gov/sites/default/files/images/SVG/header_logo_tagline_update.svg)![Cybersecurity & Infrastructure Security Agency logo America’s Cyber Security Defense Agency National Coordinator For Critical Infrastructure Security and Resilience](https://www.cisa.gov/sites/default/files/images/SVG/header_logo_tagline_update.png)](https://www.cisa.gov/)
+
+[![CISA Logo](https://www.cisa.gov/sites/default/files/images/SVG/mobile_logo_wordmark.svg)](https://www.cisa.gov/)
+
+Search
+
+|     |     |     |
+| --- | --- | --- |
+| |     |     |
+| --- | --- |
+|  | × | | search |  |
+
+Menu
+
+![America's Cyber Defense Agency](https://www.cisa.gov/sites/default/files/images/SVG/header_tagline_mobile_update.svg)
+
+Close
+
+|     |     |     |
+| --- | --- | --- |
+| |     |     |
+| --- | --- |
+|  | × | | search |  |
+
+- Topics
+- [Spotlight](https://www.cisa.gov/spotlight)
+- Resources & Tools
+- News & Events
+- Careers
+- About
+
+[Free Cyber Services](https://www.cisa.gov/resources-tools/resources/free-cybersecurity-services-and-tools "Free Cyber Services") [Secure by design](https://www.cisa.gov/securebydesign) [Secure Our World](https://www.cisa.gov/node/18883) [Shields Up](https://www.cisa.gov/node/8056) [Report A Cyber Issue](https://www.cisa.gov/report)
+
+Breadcrumb
+
+1. [Home](https://www.cisa.gov/)
+2. [News & Events](https://www.cisa.gov/news-events)
+3. [Cybersecurity Advisories](https://www.cisa.gov/news-events/cybersecurity-advisories)
+4. [Cybersecurity Advisory](https://www.cisa.gov/news-events/cybersecurity-advisories?f%5B0%5D=advisory_type%3A94)
+5. SamSam Ransomware
+
+
+Share:
+
+[Share to Facebook](https://www.facebook.com/sharer/sharer.php?u=https://www.cisa.gov/news-events/cybersecurity-advisories/aa18-337a&title=SamSam%20Ransomware "Share to Facebook")[Share to X](https://twitter.com/intent/tweet?text=SamSam%20Ransomware+https://www.cisa.gov/news-events/cybersecurity-advisories/aa18-337a "Share to X")[Share to Linkedin](https://www.linkedin.com/sharing/share-offsite/?url=https://www.cisa.gov/news-events/cybersecurity-advisories/aa18-337a "Share to Linkedin")[Share to Email](mailto:?subject=SamSam%20Ransomware&body=https://www.cisa.gov/news-events/cybersecurity-advisories/aa18-337a "Share to Email")
+
+Cybersecurity Advisory
+
+# SamSam Ransomware
+
+Last Revised
+
+December 03, 2018
+
+Alert Code
+
+AA18-337A
+
+### Summary
+
+The Department of Homeland Security (DHS) National Cybersecurity and Communications Integration Center (NCCIC) and the Federal Bureau of Investigation (FBI) are issuing this activity alert to inform computer network defenders about SamSam ransomware, also known as MSIL/Samas.A. Specifically, this product shares analysis of vulnerabilities that cyber actors exploited to deploy this ransomware. In addition, this report provides recommendations for prevention and mitigation.
+
+The SamSam actors targeted multiple industries, including some within critical infrastructure. Victims were located predominately in the United States, but also internationally. Network-wide infections against organizations are far more likely to garner large ransom payments than infections of individual systems. Organizations that provide essential functions have a critical need to resume operations quickly and are more likely to pay larger ransoms.
+
+The actors exploit Windows servers to gain persistent access to a victim’s network and infect all reachable hosts. According to reporting from victims in early 2016, cyber actors used the JexBoss Exploit Kit to access vulnerable JBoss applications. Since mid-2016, FBI analysis of victims’ machines indicates that cyber actors use Remote Desktop Protocol (RDP) to gain persistent access to victims’ networks. Typically, actors either use brute force attacks or stolen login credentials. Detecting RDP intrusions can be challenging because the malware enters through an approved access point.
+
+After gaining access to a particular network, the SamSam actors escalate privileges for administrator rights, drop malware onto the server, and run an executable file, all without victims’ action or authorization. While many ransomware campaigns rely on a victim completing an action, such as opening an email or visiting a compromised website, RDP allows cyber actors to infect victims with minimal detection.
+
+Analysis of tools found on victims’ networks indicated that successful cyber actors purchased several of the stolen RDP credentials from known darknet marketplaces. FBI analysis of victims’ access logs revealed that the SamSam actors can infect a network within hours of purchasing the credentials. While remediating infected systems, several victims found suspicious activity on their networks unrelated to SamSam. This activity is a possible indicator that the victims’ credentials were stolen, sold on the darknet, and used for other illegal activity.
+
+SamSam actors leave ransom notes on encrypted computers. These instructions direct victims to establish contact through a Tor hidden service site. After paying the ransom in Bitcoin and establishing contact, victims usually receive links to download cryptographic keys and tools to decrypt their network.
+
+### Technical Details
+
+NCCIC recommends organizations review the following SamSam Malware Analysis Reports. The reports represent four SamSam malware variants. This is not an exhaustive list.
+
+- [MAR-10219351.r1.v2 – SamSam1](https://www.cisa.gov/ncas/analysis-reports/AR18-337A)
+- [MAR-10166283.r1.v1 – SamSam2](https://www.cisa.gov/ncas/analysis-reports/AR18-337B)
+- [MAR-10158513.r1.v1 – SamSam3](https://www.cisa.gov/ncas/analysis-reports/AR18-337C)
+- [MAR-10164494.r1.v1 – SamSam4](https://www.cisa.gov/ncas/analysis-reports/AR18-337D)
+
+For general information on ransomware, see the NCCIC Security Publication at [https://www.us-cert.gov/security-publications/Ransomware](https://www.cisa.gov/security-publications/Ransomware).
+
+### Mitigations
+
+DHS and FBI recommend that users and administrators consider using the following best practices to strengthen the security posture of their organization's systems. System owners and administrators should review any configuration changes before implementation to avoid unwanted impacts.
+
+- Audit your network for systems that use RDP for remote communication. Disable the service if unneeded or install available patches. Users may need to work with their technology venders to confirm that patches will not affect system processes.
+- Verify that all cloud-based virtual machine instances with public IPs have no open RDP ports, especially port 3389, unless there is a valid business reason to keep open RDP ports. Place any system with an open RDP port behind a firewall and require users to use a virtual private network (VPN) to access that system.
+- Enable strong passwords and account lockout policies to defend against brute force attacks.
+- Where possible, apply two-factor authentication.
+- Regularly apply system and software updates.
+- Maintain a good back-up strategy.
+- Enable logging and ensure that logging mechanisms capture RDP logins. Keep logs for a minimum of 90 days and review them regularly to detect intrusion attempts.
+- When creating cloud-based virtual machines, adhere to the cloud provider’s best practices for remote access.
+- Ensure that third parties that require RDP access follow internal policies on remote access.
+- Minimize network exposure for all control system devices. Where possible, disable RDP on critical devices.
+- Regulate and limit external-to-internal RDP connections. When external access to internal resources is required, use secure methods such as VPNs. Of course, VPNs are only as secure as the connected devices.
+- Restrict users' ability (permissions) to install and run unwanted software applications.
+- Scan for and remove suspicious email attachments; ensure the scanned attachment is its "true file type" (i.e., the extension matches the file header).
+- Disable file and printer sharing services. If these services are required, use strong passwords or Active Directory authentication.
+
+Additional information on malware incident prevention and handling can be found in Special Publication 800-83, _Guide to Malware Incident Prevention and Handling for Desktops and Laptops_, from the National Institute of Standards and Technology. [\[1\]](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-83r1.pdf)
+
+### Contact Information
+
+To report an intrusion and request resources for incident response or technical assistance, contact NCCIC, FBI, or the FBI’s Cyber Division via the following information:
+
+- NCCIC
+  - [NCCICCustomerService@hq.dhs.gov(link sends email)](mailto:NCCICCustomerService@hq.dhs.gov)
+  - 888-282-0870
+- FBI’s Cyber Division
+  - [CyWatch@fbi.gov(link sends email)](mailto:CyWatch@fbi.gov)
+  - 855-292-3937
+- FBI through a local field office
+
+### Feedback
+
+DHS strives to make this report a valuable tool for our partners and welcomes feedback on how this publication could be improved. You can help by answering a few short questions about this report at the following URL: [https://www.us-cert.gov/forms/feedback](https://www.cisa.gov/forms/feedback).
+
+### References
+
+[\[1\] NIST SP 800-83: Guide to Malware Incident Prevention and Handling for Desktops and Laptops](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-83r1.pdf)
+
+### Revisions
+
+December 3, 2018: Initial version
+
+This product is provided subject to this [Notification](https://www.cisa.gov/notification "Follow link") and this [Privacy & Use](https://www.cisa.gov/privacy-policy "Follow link") policy.
+
+## Please share your thoughts
+
+We recently updated our anonymous [product survey](https://cisasurvey.gov1.qualtrics.com/jfe/form/SV_9n4TtB8uttUPaM6?product=https://www.cisa.gov/news-events/cybersecurity-advisories/aa18-337a); we’d welcome your feedback.
+
+[Return to top](https://www.cisa.gov/news-events/cybersecurity-advisories/aa18-337a#top)
+
+- [Topics](https://www.cisa.gov/topics)
+- [Spotlight](https://www.cisa.gov/spotlight)
+- [Resources & Tools](https://www.cisa.gov/resources-tools)
+- [News & Events](https://www.cisa.gov/news-events)
+- [Careers](https://www.cisa.gov/careers)
+- [About](https://www.cisa.gov/about)
+
+[Cybersecurity & Infrastructure Security Agency](https://www.cisa.gov/ "Go to the Cybersecurity & Infrastructure Security Agency homepage")
+
+- [Facebook](https://www.facebook.com/CISA)
+- [X](https://x.com/CISAgov)
+- [LinkedIn](https://www.linkedin.com/company/cybersecurity-and-infrastructure-security-agency)
+- [YouTube](https://www.youtube.com/@cisagov)
+- [Instagram](https://www.instagram.com/cisagov)
+- [RSS](https://www.cisa.gov/subscribe-updates-cisa)
+
+CISA Central [1-844-Say-CISA](tel:1-844-Say-CISA) [SayCISA@cisa.dhs.gov](mailto:SayCISA@cisa.dhs.gov)
+
+DHS Seal
+
+CISA.gov
+
+An official website of the U.S. Department of Homeland Security
+
+- [About CISA](https://www.cisa.gov/about "About CISA")
+- [Budget and Performance](https://www.dhs.gov/performance-financial-reports "Budget and Performance")
+- [DHS.gov](https://www.dhs.gov/ "Department of Homeland Security")
+- [FOIA Requests](https://www.dhs.gov/foia "FOIA Requests")
+- [No FEAR Act](https://www.cisa.gov/no-fear-act "No FEAR Act Reporting")
+- [Office of Inspector General](https://www.oig.dhs.gov/ "Office of Inspector General")
+- [Privacy Policy](https://www.cisa.gov/privacy-policy "Privacy Policy")
+- [Subscribe](https://public.govdelivery.com/accounts/USDHSCISA/subscriber/new?topic_id=USDHSCISA_138 "Subscribe to Email Updates")
+- [The White House](https://www.whitehouse.gov/ "The White House")
+- [USA.gov](https://www.usa.gov/ "USA.gov")
+- [Website Feedback](https://www.cisa.gov/forms/feedback "Website Feedback")
+
+National Terrorism Advisory System Widget
+
+# National Terrorism Advisory System
+
+[![DHS National Terrorism Advisory System: There are no current advisories](https://www.dhs.gov/xlibrary/graphics/ntas_03_noadvisories.svg)](https://www.dhs.gov/national-terrorism-advisory-system)
+
+[Put this widget on your web page](https://www.dhs.gov/ntas-widget)
+
+|     |     |
+| --- | --- |
+|  |  |
+
+|     |     |
+| --- | --- |
+|  |  |
