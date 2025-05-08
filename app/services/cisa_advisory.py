@@ -57,7 +57,7 @@ def advisories():
             limit=limit,
             max_depth=max_depth,
             exclude_paths=[ 'news-events/alerts/.+' ],
-            include_paths=[ 'news-events/cybersecurity-advisories/.+' ],
+            include_paths=[ 'news-events/cybersecurity-advisories/.+' ],            
             scrape_options=sc,
         )
 
@@ -96,12 +96,6 @@ def scrape_advisories():
     search_term = request.args.get('search_term')
     if not search_term:
         return jsonify(error="Required argument: search_term is not available"), 400
-    limit = request.args.get('limit')
-    if limit:
-        limit = toInt(limit)
-    max_depth = request.args.get('max_depth')
-    if max_depth:
-        max_depth = toInt(max_depth) 
 
     # Implement search logic here
     # ...
@@ -109,27 +103,20 @@ def scrape_advisories():
         app = FirecrawlApp()
 
         params={
-            "formats": ["extract"],
+            "formats": ["markdown"],
             "extract": {
-                "schema": cisa_model.Advisory,
+                # "schema": cisa_model.Advisory.model_json_schema(),
                 "prompt": "Extract information based on the schema provided",
-                "systemPrompt": "You are a cybersecurity expert. Extract information from the advisory.",               
+                "systemPrompt": f"You are a cybersecurity expert. Extract information from the advisory that matches with {search_term}.",
             },
         }
 
         result = app.scrape_url(
-            url=BASE_URL, 
-            limit=limit,
-            max_depth=max_depth,        
+            url=BASE_URL,
             extract=params,  
             includeTags=["h1", "h2", "h3", "p", "ul", "li"],
             excludeTags=["script", "style"],
-            includePaths=[ "news-events/cybersecurity-advisories/.+" ],
-            excludePaths=[ "news-events/alerts/.+" ],
-            includeText=[ search_term ],
-            excludeText=[ "news-events/alerts/.+" ], 
-            # exclude_paths=[ 'news-events/alerts/.+' ],
-            # include_paths=[ 'news-events/cybersecurity-advisories/.+' ],
+            formats= ["markdown"],
         )
 
         res_json_schema = result.model_json_schema()

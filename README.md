@@ -5,7 +5,7 @@ Scrapes Cybersecurity advisories listed at  https://www.cisa.gov/news-events/cyb
 ## REST API
 
 <details>
- <summary><code>GET</code> <code><b>/advisories</b></code> </summary>
+ <summary><code>GET</code> <code>/advisories</code> </summary>
 
 ##### Parameters
 
@@ -30,15 +30,13 @@ Scrapes Cybersecurity advisories listed at  https://www.cisa.gov/news-events/cyb
 </details>
 
 <details>
- <summary><code>GET</code> <code><b>/search</b></code> </summary>
+ <summary><code>GET</code> <code>/search</code> </summary>
 
 ##### Parameters
 
 > | name          |  type     | data type      | description                 |
 > |---------------|-----------|----------------|-----------------------------|
 > | `search_term` |  Required | str            | Search term                 |
-> | `limit`       |  optional | int ($int64)   | Number of advisories        |
-> | `max_depth`   |  optional | int ($int64)   | Number of Pages deep        |
 
 ##### Responses
 
@@ -50,7 +48,7 @@ Scrapes Cybersecurity advisories listed at  https://www.cisa.gov/news-events/cyb
 ##### Example cURL
 
 > ```javascript
->  curl -X GET -H "Content-Type: application/json" http://localhost:5000/search?search_term='improper access control'&limit=1&max_depth=1
+>  curl -X GET -H "Content-Type: application/json" http://localhost:5000/search?search_term='improper access control'
 > ```
 
 </details>
@@ -73,4 +71,4 @@ options:
   --verbose             Enable verbose output for debugging
 ```
 ### Sample markup
-[icsa-25-091-01](data/ransomware-markup.txt)
+[ransomware markup example](data/ransomware-markup.txt)
